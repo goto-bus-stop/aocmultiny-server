@@ -1,0 +1,26 @@
+{
+  "name": "aocmultiny-server",
+  "version": "1.0.0",
+  "description": "Tiny NAT-traversing Multiplayer matchmaking server for Age of Empires 2.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": "goto-bus-stop/aocmultiny-server",
+  "keywords": [],
+  "author": "Renée Kooi",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/goto-bus-stop/aocmultiny-server/issues"
+  },
+  "homepage": "https://github.com/goto-bus-stop/aocmultiny-server#readme",
+  "engines": {
+    "node": ">= 4"
+  },
+  "dependencies": {
+    "express": "^4.13.4"
+  },
+  "devDependencies": {
+    "standard": "^7.1.1"
+  }
+}
