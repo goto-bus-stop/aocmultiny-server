@@ -1,4 +1,5 @@
 import express from 'express'
+import { json as jsonBodyParser } from 'body-parser'
 
 import Players from './Players'
 import Rooms from './Rooms'
@@ -11,6 +12,8 @@ const db = {
   players: new Players(),
   rooms: new Rooms()
 }
+
+app.use(jsonBodyParser())
 
 app.use((req, res, next) => {
   req.db = db
