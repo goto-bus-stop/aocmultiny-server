@@ -11,9 +11,3 @@ export default () => Router()
       .then((player) => res.json({ data: player }))
       .catch(next)
   })
-  .post('/', (req, res, next) => {
-    req.db.players.create({
-      name: req.body.name
-    }).then((player) => res.json({ data: player }))
-      .catch(next)
-  })

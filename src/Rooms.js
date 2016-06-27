@@ -6,13 +6,21 @@ export function Room (name) {
   }
   this.id = uuid()
   this.name = name
+  this.players = []
 }
 
 Object.assign(Room.prototype, {
+  join (id) {
+    this.players = this.players.concat([ id ])
+  },
+  leave (id) {
+    this.players = this.players.filter((player) => player.id !== id)
+  },
   toJSON () {
     return {
       id: this.id,
-      name: this.name
+      name: this.name,
+      players: this.players
     }
   }
 })
@@ -28,6 +36,10 @@ export default function Rooms () {
 Object.assign(Rooms.prototype, {
   find (id) {
     return Promise.resolve(this.rooms[id])
+  },
+  async findByPlayer (id) {
+    const rooms = await this.all()
+    return rooms.find((room) => room.players.includes(id))
   },
   all () {
     return Promise.resolve(

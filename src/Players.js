@@ -44,5 +44,9 @@ Object.assign(Players.prototype, {
     }
     this.players[player.id] = player
     return Promise.resolve(player)
+  },
+  delete (player) {
+    delete this.players[player.id]
+    return Promise.resolve({})
   }
 })
