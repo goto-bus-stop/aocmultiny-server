@@ -4,6 +4,7 @@ import { json as jsonBodyParser } from 'body-parser'
 import Players from './Players'
 import Rooms from './Rooms'
 import Matchmaker from './Matchmaker'
+import webSocketInterface from './webSocketInterface'
 import playerRoutes from './routes/players'
 import roomRoutes from './routes/rooms'
 
@@ -27,3 +28,5 @@ app.use((req, res, next) => {
 
 app.use('/players', playerRoutes())
 app.use('/rooms', roomRoutes())
+
+webSocketInterface(matchmaker, server)
