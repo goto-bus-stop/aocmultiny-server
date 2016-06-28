@@ -43,7 +43,11 @@ export default class Matchmaker {
     const room = await this.rooms.findByPlayer(player.id)
     if (room) {
       room.leave(player.id)
-      await this.rooms.save(room)
+      if (room.empty()) {
+        await this.rooms.delete(room)
+      } else {
+        await this.rooms.save(room)
+      }
     }
   }
 

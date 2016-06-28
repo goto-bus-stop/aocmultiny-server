@@ -16,6 +16,9 @@ Object.assign(Room.prototype, {
   leave (id) {
     this.players = this.players.filter((player) => player.id !== id)
   },
+  empty () {
+    return this.players.length === 0
+  },
   toJSON () {
     return {
       id: this.id,
